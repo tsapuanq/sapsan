@@ -13,7 +13,8 @@ from ._regression import (
 from ._classification import (
     accuracy,
     recall,
-    precision
+    precision,
+    f1_score
 )
 
 
@@ -23,5 +24,5 @@ __all__ = [
     'mean_absolute_error', 'MAE',
     'root_mean_squared_error', 'RMSE',
     'mean_absolute_percentage_error', 'MAPE',
-    'accuracy', 'recall', 'precision'
+    'accuracy', 'recall', 'precision', 'f1_score'
 ]
