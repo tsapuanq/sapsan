@@ -85,24 +85,6 @@ def mean_absolute_percentage_error(y_true, y_pred, *, round_digit=None):
 MAPE = mean_absolute_percentage_error
 
 
-
-# # ------ Mean Absolute Percentage Error ------
-# def mean_squared_least_error(y_true, y_pred, round_digit=None):
-
-#     # just to be sure that inputs are numpy arrays
-#     y_true, y_pred = to_numpy(y_true, y_pred)
-    
-#     # calculating MAPE
-#     mape = np.mean(np.abs((y_true - y_pred) / y_true)) * 100
-
-#     # rounding if round_digit is provided
-#     if round_digit is not None:
-#         return round(mape, round_digit)
-#     return mape
-
-# MSLE = mean_squared_least_error
-
-
 # ----- Imports ------
 import numpy as np
 from ..utils.helper import to_numpy
