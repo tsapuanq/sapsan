@@ -55,14 +55,23 @@ def precision(y_true, y_pred, *, positive_label=1):
         raise ValueError('y_true and y_pred must be same shape')
     
     tp = np.sum((y_true == positive_label) & (y_pred == positive_label))
-    fn = np.sum((y_true != positive_label) & (y_pred == positive_label))
+    fp = np.sum((y_true != positive_label) & (y_pred == positive_label))
 
-    if fn + tp == 0:
+    if fp + tp == 0:
         return 0
     else:
-        return (tp / (fn + tp))
+        return (tp / (fp + tp))
     
-def s(): pass
+def f1_score(y_true, y_pred, *, positive_label=1):
+    y_true, y_pred = to_numpy(y_true, y_pred)
+
+    prec = precision(y_true, y_pred, positive_label=positive_label)
+    rec = recall(y_true, y_pred, positive_label=positive_label)
+
+    if prec + rec == 0:
+        return 0
+    
+    return float(2 * prec * rec / (prec + rec))
 
 
 from ..utils.helper import to_numpy
