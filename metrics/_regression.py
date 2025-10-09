@@ -3,7 +3,7 @@
 
 
 # ------ R2 score ------
-def r2_score(y_true, y_pred, round_digit=None):
+def r2_score(y_true, y_pred, *, round_digit=None):
 
     # just to be sure that inputs are numpy arrays
     y_true, y_pred = to_numpy(y_true, y_pred)
@@ -21,7 +21,7 @@ def r2_score(y_true, y_pred, round_digit=None):
 
 
 # ------ Mean Squared Error ------
-def mean_squared_error(y_true, y_pred, round_digit=None):
+def mean_squared_error(y_true, y_pred, *, round_digit=None):
     
     # just to be sure that inputs are numpy arrays
     y_true, y_pred = to_numpy(y_true, y_pred)
@@ -38,7 +38,7 @@ def mean_squared_error(y_true, y_pred, round_digit=None):
 MSE = mean_squared_error
 
 # ------ Mean Absolute Error ------
-def mean_absolute_error(y_true, y_pred, round_digit=None):
+def mean_absolute_error(y_true, y_pred, *, round_digit=None):
 
     # just to be sure that inputs are numpy arrays
     y_true, y_pred = to_numpy(y_true, y_pred)
@@ -54,7 +54,7 @@ def mean_absolute_error(y_true, y_pred, round_digit=None):
 MAE = mean_absolute_error
 
 # ------ Root Mean Squared Error ------
-def root_mean_squared_error(y_true, y_pred, round_digit=None):
+def root_mean_squared_error(y_true, y_pred, *, round_digit=None):
 
     # calculating RMSE using MSE function defined above
     rmse = np.sqrt(MSE(y_true, y_pred))
@@ -68,7 +68,7 @@ def root_mean_squared_error(y_true, y_pred, round_digit=None):
 RMSE = root_mean_squared_error
 
 # ------ Mean Absolute Percentage Error ------
-def mean_absolute_percentage_error(y_true, y_pred, round_digit=None):
+def mean_absolute_percentage_error(y_true, y_pred, *, round_digit=None):
 
     # just to be sure that inputs are numpy arrays
     y_true, y_pred = to_numpy(y_true, y_pred)
