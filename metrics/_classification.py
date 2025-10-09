@@ -34,9 +34,20 @@ def accuracy(y_true, y_pred, *, normalize=True, sample_weight=None):
         return float(correct.mean()) if normalize else float(correct.sum())
     
 
-def recall():
-    pass
+def recall(y_true, y_pred, *, positive_label=1):
+    y_true, y_pred = to_numpy(y_true, y_pred)
+    
+    if y_true.shape[0] != y_pred.shape[0]:
+        raise ValueError('y_true and y_pred must have same shape')
+    
+    tp = np.sum((y_true == positive_label) & (y_pred == positive_label))
+    actual_positive = np.sum(y_true == positive_label)
 
+    if actual_positive == 0:
+        return 0
+    
+    return float(tp / actual_positive)
+    
 def precision():
     pass
 
