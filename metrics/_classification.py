@@ -48,9 +48,20 @@ def recall(y_true, y_pred, *, positive_label=1):
     
     return float(tp / actual_positive)
     
-def precision():
-    pass
+def precision(y_true, y_pred, *, positive_label=1):
+    y_true, y_pred = to_numpy(y_true, y_pred)
 
+    if y_true.shape[0] != y_pred.shape[0]:
+        raise ValueError('y_true and y_pred must be same shape')
+    
+    tp = np.sum((y_true == positive_label) & (y_pred == positive_label))
+    fn = np.sum((y_true != positive_label) & (y_pred == positive_label))
+
+    if fn + tp == 0:
+        return 0
+    else:
+        return (tp / (fn + tp))
+    
 def s(): pass
 
 
